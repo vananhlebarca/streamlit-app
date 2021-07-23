@@ -22,7 +22,7 @@ df = pd.DataFrame({
 
 df
 
-#------------ Draw charts and maps-------
+#=============Draw charts and maps===================================
 #-------------Draw a line chart
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
@@ -36,3 +36,20 @@ map_data = pd.DataFrame(
     columns=['lat', 'lon'])
 
 st.map(map_data)
+
+
+#==============Add interactivity with widgets==========================
+#------------Use checkboxes to show/hide data
+if st.checkbox('Show dataframe'):
+    chart_data = pd.DataFrame(
+       np.random.randn(20, 3),
+       columns=['a', 'b', 'c'])
+
+    chart_data
+
+#------------Use a selectbox for options
+option = st.selectbox(
+    'Which number do you like best?',
+     df['first column'])
+
+'You selected: ', option
